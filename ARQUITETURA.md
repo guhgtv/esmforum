@@ -18,19 +18,19 @@
 
 ```mermaid
 flowchart TD
-    subgraph Frontend [Client-Side (React)]
+    subgraph Frontend
         UI[Interface de Usuário]
         State[Gerenciamento de Estado]
         UI <--> State
     end
 
-    subgraph Backend [Server-Side (Node.js/Express)]
+    subgraph Backend
         Router[Rotas / server.js]
         Model[Persistência / modelo.js]
         Router <--> Model
     end
 
-    subgraph Database [Banco de Dados]
+    subgraph Database
         SQLite[(SQLite)]
     end
 
