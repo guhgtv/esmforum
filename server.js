@@ -1,5 +1,8 @@
 const express = require('express')
 const modelo = require('./modelo.js');
+const BuscaService = require('./services/BuscaService.js');
+
+const buscaService = new BuscaService(modelo);
 
 const app = express()
 app.use(express.json());
@@ -18,6 +21,16 @@ app.get('/', (req, res) => {
   }
   catch(erro) {
     res.status(500).json(erro.message); 
+  }
+});
+
+app.get('/perguntas/busca', (req, res) => {
+  try {
+    const termo = req.query.q || '';
+    const resultados = buscaService.executar({ termo: termo });
+    res.json(resultados);
+  } catch(erro) {
+    res.status(500).json({ erro: erro.message }); 
   }
 });
 

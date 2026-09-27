@@ -43,6 +43,13 @@ function get_num_respostas(id_pergunta) {
   return resultado['count(*)'];
 }
 
+function buscar_perguntas_por_termo(termo) {
+  const sql = "SELECT * FROM perguntas WHERE texto LIKE ?";
+  const perguntas = bd.queryAll(sql, [`%${termo}%`]);
+  perguntas.forEach(pergunta => pergunta['num_respostas'] = get_num_respostas(pergunta['id_pergunta']));
+  return perguntas;
+}
+
 exports.reconfig_bd = reconfig_bd;
 exports.listar_perguntas = listar_perguntas;
 exports.cadastrar_pergunta = cadastrar_pergunta;
@@ -50,3 +57,4 @@ exports.cadastrar_resposta = cadastrar_resposta;
 exports.get_pergunta = get_pergunta;
 exports.get_respostas = get_respostas;
 exports.get_num_respostas = get_num_respostas;
+exports.buscar_perguntas_por_termo = buscar_perguntas_por_termo;
