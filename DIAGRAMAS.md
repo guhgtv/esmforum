@@ -1,3 +1,6 @@
+#### a) Diagrama de Classes
+
+```mermaid
 classDiagram
     class Usuario {
         +int id_usuario
@@ -52,7 +55,7 @@ classDiagram
         F-->>U: Exibe mensagem "Nenhuma pergunta encontrada"
     end
 
-stateDiagram-v2
+    stateDiagram-v2
     [*] --> PreencherFormulario
     PreencherFormulario --> AdicionarTags
     AdicionarTags --> SubmeterPergunta
@@ -74,7 +77,7 @@ stateDiagram-v2
     SalvarBanco --> RedirecionarHome
     RedirecionarHome --> [*]
 
-stateDiagram-v2
+    stateDiagram-v2
     [*] --> Publicada : Usuário submete pergunta
     
     Publicada --> EmDiscussao : Recebe primeira resposta
@@ -86,3 +89,5 @@ stateDiagram-v2
     
     Resolvida --> [*]
     Fechada --> [*]
+
+    
