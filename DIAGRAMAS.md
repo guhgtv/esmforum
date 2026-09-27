@@ -34,7 +34,11 @@ classDiagram
     Usuario "1" -- "*" Resposta : fornece >
     Pergunta "1" -- "*" Resposta : contem >
     Pergunta "*" -- "*" Tag : categorizada por >
+```
 
+#### b) Diagrama de Sequência (Busca de Perguntas)
+
+```mermaid
 sequenceDiagram
     actor U as Usuário
     participant F as Frontend (React)
@@ -54,8 +58,12 @@ sequenceDiagram
         A-->>F: Retorna JSON vazio (status 200)
         F-->>U: Exibe mensagem "Nenhuma pergunta encontrada"
     end
+```
 
-  stateDiagram-v2
+#### c) Diagrama de Atividades (Criar Pergunta com Tag)
+
+```mermaid
+stateDiagram-v2
     [*] --> PreencherFormulario
     PreencherFormulario --> AdicionarTags
     AdicionarTags --> SubmeterPergunta
@@ -76,8 +84,12 @@ sequenceDiagram
     ValidarDados --> SalvarBanco : Valido
     SalvarBanco --> RedirecionarHome
     RedirecionarHome --> [*]
+```
 
- stateDiagram-v2
+#### d) Diagrama de Estados (Ciclo de vida de uma Pergunta)
+
+```mermaid
+stateDiagram-v2
     [*] --> Publicada : Usuário submete pergunta
     
     Publicada --> EmDiscussao : Recebe primeira resposta
@@ -89,3 +101,4 @@ sequenceDiagram
     
     Resolvida --> [*]
     Fechada --> [*]
+```
