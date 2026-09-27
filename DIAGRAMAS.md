@@ -35,7 +35,7 @@ classDiagram
     Pergunta "1" -- "*" Resposta : contem >
     Pergunta "*" -- "*" Tag : categorizada por >
 
-    sequenceDiagram
+sequenceDiagram
     actor U as Usuário
     participant F as Frontend (React)
     participant A as API (Express)
@@ -55,7 +55,7 @@ classDiagram
         F-->>U: Exibe mensagem "Nenhuma pergunta encontrada"
     end
 
-    stateDiagram-v2
+  stateDiagram-v2
     [*] --> PreencherFormulario
     PreencherFormulario --> AdicionarTags
     AdicionarTags --> SubmeterPergunta
@@ -77,7 +77,7 @@ classDiagram
     SalvarBanco --> RedirecionarHome
     RedirecionarHome --> [*]
 
-    stateDiagram-v2
+ stateDiagram-v2
     [*] --> Publicada : Usuário submete pergunta
     
     Publicada --> EmDiscussao : Recebe primeira resposta
@@ -89,5 +89,3 @@ classDiagram
     
     Resolvida --> [*]
     Fechada --> [*]
-
-    
